@@ -19,7 +19,7 @@ Run this Node application in your server.
 ~~~~~~~~~~~~~~~~~
 /delete-container
 
- Params required
+ Params required (send this as query parameter in string)
 
 	url - ip address
 	port - port number
