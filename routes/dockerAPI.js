@@ -2,11 +2,11 @@
  * New node file
  */
 var Docker = require('dockerode');
-var docker;
+var docker, url, PORT, container;
 
 function createContainer(req, res) {
-	var url = req.param("url");
-	var PORT = req.param("port");
+	url = req.param("url");
+	PORT = req.param("port");
 	var image = req.param("image");
 	var image_name = req.param("image_name");
 		
@@ -36,4 +36,26 @@ function createContainer(req, res) {
 	});
 }
 
+function delete_container(req, res) {
+	
+	url = req.param("url");
+	PORT = req.param("port");
+	var container_id = req.param("cont_id");
+
+	docker = new Docker({host: url, port: PORT});
+	
+	container = docker.getContainer(container_id);
+	
+	container.remove(function (err, data) {
+		if (err) {
+			res.send({"status":"Error", "error": err});
+		} else {
+			console.log(data);
+			res.send({"status":"Success", "data":data, "error": err});
+		}
+	});
+	
+}
+
 exports.create = createContainer;
+exports.delete_container = delete_container;
