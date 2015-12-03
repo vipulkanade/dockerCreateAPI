@@ -6,6 +6,7 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , docker_api = require('./routes/dockerAPI')
+  , bodyParser = require('body-parser')
   , http = require('http')
   , path = require('path');
 
@@ -13,6 +14,11 @@ var app = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
+
+//Config body-parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.favicon());

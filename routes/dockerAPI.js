@@ -37,10 +37,12 @@ function createContainer(req, res) {
 }
 
 function delete_container(req, res) {
-	
-	url = req.param("url");
-	PORT = req.param("port");
-	var container_id = req.param("cont_id");
+	console.log(" URL : " + req.query.url);
+	console.log(" URL : " + req.query.port);
+	console.log(" URL : " + req.query.cont_id);
+	url = req.query.url;
+	PORT = req.query.port;
+	var container_id = req.query.cont_id;
 
 	docker = new Docker({host: url, port: PORT});
 	
