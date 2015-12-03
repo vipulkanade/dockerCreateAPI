@@ -26,6 +26,16 @@ Run this Node application in your server.
 	cont_id - contianer id to remove
 ~~~~~~~~~~~~~~~~~
 
+~~~~~~~~~~~~~~~~~
+/delete-image
+
+ Params required (send this as query parameter in string)
+
+	url - ip address
+	port - port number
+	image_name - contianer id to remove
+~~~~~~~~~~~~~~~~~
+
 #Example Request
 ~~~~~~~~~~~~~~~~
 request = {
