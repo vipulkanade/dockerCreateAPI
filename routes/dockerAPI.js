@@ -92,7 +92,7 @@ function delete_volume(req, res) {
 
 	docker = new Docker({host: url, port: PORT});
 	
-	volume = docker.getImage(vol_name);
+	volume = docker.getVolume(vol_name);
 	
 	volume.remove(function (err, data) {
 		if (err) {
@@ -114,7 +114,7 @@ function delete_network(req, res) {
 
 	docker = new Docker({host: url, port: PORT});
 	
-	network = docker.getImage(net_name);
+	network = docker.getNetwork(net_name);
 	
 	network.remove(function (err, data) {
 		if (err) {
