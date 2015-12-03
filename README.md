@@ -6,7 +6,7 @@ Run this Node application in your server.
 
 ##API
 ~~~~~~~~~~~~
-/create-container
+/create-container (send this as query parameter in string)
 
  Params required
 
@@ -60,9 +60,7 @@ Run this Node application in your server.
 ~~~~~~~~~~~~~~~~
 request = {
 				method: 'POST',
-				url: 'http://localhost:3000/create-container',
-				headers: {'Content-Type': 'application/json' },
-				data : { "image": "ubuntu", "image_name": "ubuntu_test" }
+				url: 'http://localhost:3000/create-container?url=http://52.34.147.69&port=5555&image=ubuntu&image_name=ubuntu-test',
 		}
 ~~~~~~~~~~~~~~~~
 

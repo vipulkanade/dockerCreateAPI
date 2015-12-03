@@ -5,10 +5,10 @@ var Docker = require('dockerode');
 var docker, url, PORT, container, image, volume, network;
 
 function createContainer(req, res) {
-	url = req.param("url");
-	PORT = req.param("port");
-	var image = req.param("image");
-	var image_name = req.param("image_name");
+	url = req.query.url;
+	PORT = req.query.port;
+	var image = req.query.image;
+	var image_name = req.query.image_name;
 		
 	docker = new Docker({host: url, port: PORT});
 	
