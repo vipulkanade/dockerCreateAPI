@@ -36,6 +36,26 @@ Run this Node application in your server.
 	image_name - contianer id to remove
 ~~~~~~~~~~~~~~~~~
 
+~~~~~~~~~~~~~~~~~
+/delete-volume
+
+ Params required (send this as query parameter in string)
+
+	url - ip address
+	port - port number
+	volume_name - contianer id to remove
+~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~
+/delete-network
+
+ Params required (send this as query parameter in string)
+
+	url - ip address
+	port - port number
+	network_name - contianer id to remove
+~~~~~~~~~~~~~~~~~
+
 #Example Request
 ~~~~~~~~~~~~~~~~
 request = {

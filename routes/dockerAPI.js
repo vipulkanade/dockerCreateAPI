@@ -2,7 +2,7 @@
  * New node file
  */
 var Docker = require('dockerode');
-var docker, url, PORT, container, image;
+var docker, url, PORT, container, image, volume, network;
 
 function createContainer(req, res) {
 	url = req.param("url");
@@ -82,6 +82,52 @@ function delete_image(req, res) {
 	
 }
 
+function delete_volume(req, res) {
+	console.log(" URL : " + req.query.url);
+	console.log(" URL : " + req.query.port);
+	console.log(" URL : " + req.query.volume_name);
+	url = req.query.url;
+	PORT = req.query.port;
+	var vol_name = req.query.volume_name;
+
+	docker = new Docker({host: url, port: PORT});
+	
+	volume = docker.getImage(vol_name);
+	
+	volume.remove(function (err, data) {
+		if (err) {
+			res.send({"status":"Error", "error": err});
+		} else {
+			console.log(data);
+			res.send({"status":"Success", "data":data, "error": err});
+		}
+	});
+}
+
+function delete_network(req, res) {
+	console.log(" URL : " + req.query.url);
+	console.log(" URL : " + req.query.port);
+	console.log(" URL : " + req.query.network_name);
+	url = req.query.url;
+	PORT = req.query.port;
+	var net_name = req.query.network_name;
+
+	docker = new Docker({host: url, port: PORT});
+	
+	network = docker.getImage(net_name);
+	
+	network.remove(function (err, data) {
+		if (err) {
+			res.send({"status":"Error", "error": err});
+		} else {
+			console.log(data);
+			res.send({"status":"Success", "data":data, "error": err});
+		}
+	});
+}
+
 exports.create = createContainer;
 exports.delete_container = delete_container;
 exports.delete_image = delete_image;
+exports.delete_volume = delete_volume;
+exports.delete_network = delete_network;

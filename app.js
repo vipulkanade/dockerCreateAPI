@@ -50,6 +50,8 @@ app.get('/users', user.list);
 app.post('/create-container', docker_api.create);
 app.post('/delete-container', docker_api.delete_container);
 app.post('/delete-image', docker_api.delete_image);
+app.post('/delete-volume', docker_api.delete_volume);
+app.post('/delete-network', docker_api.delete_network);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
